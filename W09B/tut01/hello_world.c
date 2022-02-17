@@ -1,5 +1,5 @@
 // Saying hi to the world
-// by Ada Luong, Februrary 2022
+// by Ada Luong, February 2022
 
 #include <stdio.h>
 
