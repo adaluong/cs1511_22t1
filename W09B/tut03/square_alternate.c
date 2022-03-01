@@ -10,21 +10,20 @@ int main(void) {
     printf("Please enter an integer: ");
     scanf("%d", &scanned_integer);
 
+    // printing the number of rows of asterisks
     int row = 0;
-    while(row < scanned_integer) {
+    while (row < scanned_integer) {
 
-        ////////////////////////////////////////////
-        // similar to when we had `printf("*****\n")`
-        // except now with a variable number of asterisks
+        // printing the number of asterisks in a row
+        // eg. **********
         int col = 0;
         while(col < scanned_integer) {
             printf("*");
-            col++;
+            col += 1;
         }
         printf("\n");
-        ////////////////////////////////////////////
 
-        row++;
+        row += 1;
     }
 
     return 0;
