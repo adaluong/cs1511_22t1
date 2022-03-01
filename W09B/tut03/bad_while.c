@@ -4,47 +4,49 @@
 #include <stdio.h>
 
 int main(void) {
+    int i = 0;
 
-    int i;
+    while (i < 10) {
+        printf("%d\n", i);
+        i = i + 1;
+    }
+}
+
+/* EXAMPLE 1 (FIXED)
+
+    int i = 0;
 
     while (i < 100) {
         printf("%d\n", i);
         i = i + 1;
     }
     return 0;
-}
 
-/* EXAMPLE 2
+*/
 
-int i = 0;
-int j = 0;
+/* EXAMPLE 2 (FIXED)
 
-while (j = 1 || i < 100) {
-    printf("%d\n", i);
-    i = i + 1;
-}
+    int i = 0;
+
+    while (i < 100) {
+        printf("%d\n", i);
+        i = i + 1;
+    }
+
 
 */
 
 /* EXAMPLE 3
 
-int i = 0;
-int n = 10;
 
-while (i < n) {
-    printf("%d\n", i);
-    n = n + i;
-    i = i + 1;
-}
+    int i = 0;
+    int n = 10;
 
-*/
+    while (i < n) {
+        printf("%d\n", i);
+        // n = n + i;
+        i = i + 1;
+    }
 
-/* EXAMPLE 4
-
-int i = 0;
-
-while (i < 10)
-    printf("%d\n", i);
-    i = i + 1;
 
 */
