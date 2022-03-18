@@ -7,17 +7,31 @@
 #define SIZE 7
 
 int main(void) {
-    int row, column;
+    int array[SIZE][SIZE];
+    int row;
+    int column;
 
     row = 0;
     while (row < SIZE) {
         column = 0;
         while (column < SIZE) {
-            printf("1");
+            array[row][column] = 1;
             column = column + 1;
         }
-        printf("\n");
         row = row + 1;
+    }
+
+    array[0][0] = 8;
+
+    row = 0;
+    while (row < SIZE) {
+        column = 0;
+        while (column < SIZE) {
+            printf("%d ", array[row][column]);
+            column = column + 1;
+        }
+        row = row + 1;
+        printf("\n");
     }
 
     return 0;

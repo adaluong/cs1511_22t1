@@ -3,8 +3,10 @@
 // and multiplies every value in the array by a given int
 // Ada Luong, March 2022
 
-
 #include <stdio.h>
+
+#define ROWS    3
+#define COLUMNS 3
 
 void scalar_multiply(int rows, int columns, int matrix[rows][columns], int scalar);
 void print_matrix(int rows, int columns, int matrix[rows][columns]);
@@ -19,7 +21,7 @@ int main(void) {
 
     ////////////////////////////////////////
     // CALL YOUR SCALAR MULTIPLY FUNCTION HERE
-    // 
+    scalar_multiply(ROWS, COLUMNS, matrix, 2);
     //////////////////////////////////////// 
     
     
@@ -31,7 +33,17 @@ int main(void) {
 
 // Loop through a 2D array and multiply every element by a given scalar
 void scalar_multiply(int rows, int columns, int matrix[rows][columns], int scalar) {
-    // TODO: COMPLETE THIS FUNCTION
+    int r = 0;
+    // loops through the big array for individual arrays
+    while (r < rows) {
+        // loop through individual arrays for integer elements
+        int c = 0;
+        while (c < columns) {
+            matrix[r][c] = matrix[r][c] * scalar;
+            c++;
+        }
+        r++;
+    }
 }
 
 //  Function to print a 2D array

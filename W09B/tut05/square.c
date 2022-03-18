@@ -9,16 +9,33 @@
 int main(void) {
     int row, column;
 
+    // initialising the array
+    int grid[SIZE][SIZE];
+
     row = 0;
     while (row < SIZE) {
         column = 0;
         while (column < SIZE) {
-            printf("1");
+            grid[row][column] = 1;
+            column = column + 1;
+        }
+        row = row + 1;
+    }
+
+    grid[0][0] = 0;
+
+    // printing the array
+    row = 0;
+    while (row < SIZE) {
+        column = 0;
+        while (column < SIZE) {
+            printf("%d", grid[row][column]);
             column = column + 1;
         }
         printf("\n");
         row = row + 1;
     }
+
 
     return 0;
 }
