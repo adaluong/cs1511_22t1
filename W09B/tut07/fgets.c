@@ -6,8 +6,16 @@
 
 #include <stdio.h>
 
+#define MAX_SIZE 4096
+
 int main (void) {
     
+    // char *fgets(char *s, int size, FILE *stream);
+    char buffer[MAX_SIZE];
+    fgets(buffer, MAX_SIZE, stdin);
+
+    printf("%s", buffer);
+    printf("%s", buffer);
 
     return 0;
 }
