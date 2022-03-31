@@ -13,6 +13,8 @@ int main(void) {
     // with a hidden null terminator \0 at the end
     // which is added since we used the "double quotes"
     char string_arr[] = "hello\n";
+    // "a" = {'a', '\0'} vs 'a'
+    // "hello\n" = {'h', 'e', 'l', 'l', 'o', '\n', '\0'}
 
     // this is a pointer to a series of characters with a \0 at the end
     char *string_ptr = "world\n";

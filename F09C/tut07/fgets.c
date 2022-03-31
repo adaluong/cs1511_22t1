@@ -6,8 +6,16 @@
 
 #include <stdio.h>
 
+#define MAX_CHARACTERS 4096
+
 int main (void) {
     
+    // char *fgets(char *s, int size, FILE *stream);
+    char string[MAX_CHARACTERS];
+    fgets(string, MAX_CHARACTERS, stdin);
+
+    printf("%s", string);
+    printf("%s", string);
 
     return 0;
 }
