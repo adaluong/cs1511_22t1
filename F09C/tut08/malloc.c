@@ -17,6 +17,8 @@ struct student {
 
 int main(void) {
 
+    struct student *frankie = create_student(000, 100, "frankie");
+    printf("the zId of frankie is %d\n", frankie->zID);
 
     return 0;
 }
@@ -24,5 +26,9 @@ int main(void) {
 // A function that creates a new struct student
 // and returns a pointer to it
 struct student *create_student(int zID, double mark, char *name) {
-    
+    struct student *new_student_ptr = malloc(sizeof(struct student));
+    new_student_ptr->zID = zID;
+    new_student_ptr->mark = mark;
+    strcpy(new_student_ptr->name, name);
+    return new_student_ptr;
 }
