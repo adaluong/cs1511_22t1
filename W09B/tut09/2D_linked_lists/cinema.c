@@ -109,7 +109,49 @@ int add_movie(
     double rating,
     int length
 ) {
-    // TODO: Finish this function
+
+    // Create a pointer to loop through the genres
+    // of the cinema
+    // Find the genre (genre_name) that I'm going to add the movie to
+
+    struct genre *genre_ptr = cinema->genres;
+    while (genre_ptr != NULL && strcmp(genre_ptr->name, genre_name) != 0) {
+        genre_ptr = genre_ptr->next;
+    }
+
+    // I don't find the genre -> will be pointing to NULL
+    if (genre_ptr == NULL) {
+        return NOT_FOUND;
+    }
+
+    // I find the movie :)
+    // Create my new movie node AFTER i check that the genre is found
+    // TODO: move this into a new function
+    struct movie *new_movie = malloc(sizeof(struct movie));
+    strcpy(new_movie->title, movie_title);
+    new_movie->length = length;
+    new_movie->rating = rating;
+    new_movie->next = NULL;
+
+    // Add the movie to the linked list
+    // CASE 1: if it's the first movie of the genre
+    //         will have to modify the `movies` member of the `genre` struct
+    // CASE 2: if it's NOT the first movie of the genre
+    //         will have to loop to the end of the linked list
+    //         have to create a pointer to loop through the movies
+    if (genre_ptr->movies == NULL) {
+        genre_ptr->movies = new_movie;
+    } else {
+        struct movie *movie_ptr = genre_ptr->movies;
+        while (movie_ptr->next != NULL) {
+            movie_ptr = movie_ptr->next;
+        }
+
+        // I know at this point it will be pointing at the last node
+        // aka movie_ptr->next == NULL
+        movie_ptr->next = new_movie;
+    }
+
     return SUCCESS;
 }
 
@@ -133,7 +175,24 @@ int add_movie(
 // - `cinema` will always be a valid pointer
 // - `genre_name` will always be a valid string of `MAX_STR_LENGTH` size
 void print_genre(struct cinema *cinema, char *genre_name) {
-    // TODO: Finish this function
+    struct genre *curr_genre = cinema->genres;
+    while (curr_genre != NULL && strcmp(curr_genre->name, genre_name) != 0) {
+        curr_genre = curr_genre->next;
+    }
+
+    // Nothing to be printed if genre wasn't found
+    if (curr_genre == NULL) {
+        return;
+    }
+    
+    struct movie *curr_movie = curr_genre->movies;
+    while (curr_movie != NULL) {
+        printf(
+            "%s, %.2lf/10 (%d minutes)\n",
+            curr_movie->title, curr_movie->rating, curr_movie->length
+        );
+        curr_movie = curr_movie->next;
+    }
 }
 
 // This function has been provided for you to test!
@@ -150,4 +209,9 @@ int main(void) {
     // Will only work after finishing this function!
     print_genre(cinema, "Action");
     print_genre(cinema, "Drama");
+
+    // TODO: YOU WILL HAVE TO FREE THE CINEMA HERE!
+    // - free all the movies in a genre
+    // - free all the genres
+    // - free the cinema itself
 }

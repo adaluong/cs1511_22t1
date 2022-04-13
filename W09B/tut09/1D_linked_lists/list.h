@@ -6,6 +6,9 @@ struct node {
 	struct node *next;		// pointer to the next node
 };
 
+// Append to a linked list
+struct node *add_last(struct node *head, int data);
+
 // Prints the data of a linked list
 void print_list(struct node *head);
 
