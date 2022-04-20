@@ -16,16 +16,19 @@ struct list {
 // Creates a new struct list and returns a pointer to it.
 struct list *create_list();
 
-// Pushes a new node to the head of a given linked list
+// Creates and pushes a new node which contains the given value
+// to the head of a given linked list
 void push_head(struct list *list, char *value);
 
-// Pushes a new node to the tail of a given linked list
+// Creates and pushes a new node which contains the given value
+// to the tail of a given linked list
 void push_tail(struct list *list, char *value);
 
-// Pops the node at the head of a given linked list and returns it
+// Pops the node at the head of a given linked list and returns a pointer to it
+// returns NULL if there's no node in the list to pop
 struct node *pop_front(struct list *list);
 
-// Pops the node at the tail of a given linked list and returns it
+// Pops the node at the tail of a given linked list and returns a pointer to it
 struct node *pop_back(struct list *list);
 
 // Insert a new node at position `index` of a linked list. If index is negative,
@@ -33,6 +36,7 @@ struct node *pop_back(struct list *list);
 void insert_at_index(struct list *list, char *value, int index);
 
 // Returns the data at the head of the given linked list
+// without removing the node from the linked list
 char *peek_top(struct list *list);
 
 // Returns the data at the `index` node in the given linked list. Returns
