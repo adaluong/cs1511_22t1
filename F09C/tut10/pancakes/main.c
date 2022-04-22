@@ -3,6 +3,7 @@
 // TODO: implement commands noted in the functions by using the list.h functions
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "list.h"
 
@@ -23,7 +24,7 @@ void handle_command(struct list *pancake, char command) {
     char extra_data[MAX_STR_LENGTH];
 
     // TODO: Finish this function. Add more command conditions!
-    //
+    // 
     // Important commands:
     // - 'a' <name>: place new pancake onto pancake stack
     // - 'e':        eat top pancake
@@ -33,5 +34,26 @@ void handle_command(struct list *pancake, char command) {
         fgets(extra_data, MAX_STR_LENGTH, stdin);
         push_head(pancake, extra_data);
         printf("Added: %s", extra_data);
+    } else if (command == 'e') {
+        struct node *popped = pop_front(pancake);
+        if (popped != NULL) {
+            printf("You've eaten a pancake!\n");
+            free(popped);
+        } else {
+            printf("You can't eat the plate!\n");
+        }
+    } else if (command == 'p') {
+        print_list(pancake);
     }
+
+    // HEAD -> [grape] -> [banana] -> [chocolate] -> [strawberry] -> X
+
+    /*
+    [grape]
+    [banana]
+    [chocolate]
+    [strawberry]
+    -----------------
+    */
+
 }
